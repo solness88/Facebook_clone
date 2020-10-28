@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FbClone</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="header clearfix">
+        <span class="logo_image"><%= link_to image_tag('logo.png'), blogs_path %></span>
+        <nav>
+          <ul class="top_menu clearfix">
+            <li>こんにちは、<%= @blog_current.name %>さん。</li>
+            <li><%= link_to '投稿一覧', blogs_path %></li>
+            <li><%= link_to '新規作成', new_blog_path %></li>
+            <% flash.each do |key, value| %>
+              <%= content_tag(:div, value, class: "#{key}") %>
+            <% end %>
+            <% if logged_in? %>
+              <li><%= link_to "プロフィール", user_path(current_user.id) %></li>
+              <li><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
+            <% else %>
+              <li><%= link_to "サインアップ", new_user_path %></li>
+              <li><%= link_to "ログイン", new_session_path %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </header>
+      <div class = main_content>
+        <%= yield %>
+      </div>
+      <footer class="footer">
+        <p>Copyright © 2020 FACEBOOK CLONE All RIGHTS RESERVED.</p>
+      </footer>
+    </div>
+  </body>
+</html>

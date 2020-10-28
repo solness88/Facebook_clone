@@ -1,0 +1,8 @@
+<aside class="side_menu">
+  <p class="banner">
+    <div class="panda_comment"><%= image_tag @blog_current.image.url %></div>
+    <div class="panda_comment">つぶやいた数：<%= @count %></div>
+    <div class="panda_comment">こんにちは、<%= @blog_current.name %>さん。</div>
+  </p>
+</aside>
+<%= render 'form' %>
