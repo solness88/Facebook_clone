@@ -40,6 +40,8 @@ class BlogsController < ApplicationController
   end
   def index_user
     @blogs = Blog.where(user_id:params[:id])
+    @index_user = Blog.find_by(user_id:params[:id])
+    @count = Blog.where(user_id:params[:id]).count
   end
   private
   def blog_params

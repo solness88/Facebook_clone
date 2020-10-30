@@ -1,19 +1,26 @@
 <aside class="side_menu">
   <p class="banner">
-    <div class="panda_comment"><%= image_tag @blog_current.image.url %></div>
-    <div class="panda_comment">名前：<%= @blog_current.name %></div>
+    <div class = "panda_comment"><%= image_tag @index_user.user.image.url %></div>
+    <div class = "panda_comment"><%= @index_user.user.name %>さんの投稿一覧</div>
+    <div class = "panda_comment"><%= @index_user.user.email %></div>
+    <div class = "panda_comment">記事の数:<%= @count %></div>
   </p>
 </aside>
 <div>
   <p><%= notice %></p>
   <table>
-    <%= image_tag('forest.jpg') %>
-      <h1>Userごとの投稿ページ</h1>
+    <%= image_tag('woods.jpg') %>
       <% @blogs.each do |blog| %>
-        <%= blog.title %>
-        <%= blog.user.name %>
-        <%= blog.title %>
-        <%= image_tag blog.image.url %>
-        <%= blog.content %>
-        <%= blog.user_id %>
+      <ul class="article_main">
+        <div class = "content_userimg"><%= image_tag blog.user.image.url %></div>
+        <div>
+          <li><%= blog.title %></li>
+          <li><%= blog.user.name %></li>
+          <li><%= image_tag blog.image.url %></li>
+          <li><%= blog.content %></li>
+          <li><%= link_to '詳細を確認する', blog_path(blog.id) %></li>
+        </div>
+      </ul>
       <% end %>
+    </table>
+</div>
