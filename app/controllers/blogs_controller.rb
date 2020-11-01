@@ -20,6 +20,7 @@ class BlogsController < ApplicationController
     end
   end
   def show
+    @index_user = Blog.find_by(user_id:params[:id])
   end
   def edit
   end

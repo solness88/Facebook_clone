@@ -5,12 +5,21 @@
     <div class="panda_comment">こんにちは、<%= @blog_current.name %>さん。</div>
   </p>
 </aside>
-<p>タイトル: <%= @blog.title %></p>
-<p>内容: <%= @blog.content %></p>
-<p>投稿者: <%= @blog.user.name %></p>
-<p id="notice"><%= notice %></p>
-<p><%= image_tag @blog.image.url %></p>
-<p><%= link_to "ブログを編集する", edit_blog_path(@blog.id), data: { confirm: '本当に編集していいですか？' } %></p>
-<p><%= link_to 'ブログを削除する', blog_path(@blog.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></p>
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+
+<div>
+  <table>
+    <%= image_tag('woods.jpg') %>
+    <ul class="article_main">
+      <div class = "content_userimg"><%= image_tag @blog.user.image.url %></div>
+      <div>
+        <li><%= @blog.title %></li>
+        <li>投稿者: <%= @blog.user.name %></li>
+        <li><%= notice %></li>
+        <li><%= image_tag @blog.image.url %></li>
+        <li><%= link_to "ブログを編集する", edit_blog_path(@blog.id), data: { confirm: '本当に編集していいですか？' } %></li>
+        <li><%= link_to 'ブログを削除する', blog_path(@blog.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></li>
+        <li><%= link_to '戻る', blogs_path %></li>
+      </div>
+    </ul>
+  </table>
+</div>
