@@ -4,6 +4,13 @@
     <div class = "panda_comment"><%= @index_user.user.name %>さんの投稿一覧</div>
     <div class = "panda_comment"><%= @index_user.user.email %></div>
     <div class = "panda_comment">記事の数:<%= @count %></div>
+    <% if logged_in? %>
+      <div class="panda_comment"><%= link_to '全ユーザーの投稿一覧', blogs_path %></div>
+      <div class="panda_comment"><%= link_to '新規作成', new_blog_path %></div>
+    <% else %>
+      <div class="panda_comment"><%= link_to "サインアップ", new_user_path %></div>
+      <div class="panda_comment"><%= link_to "ログイン", new_session_path %></div>
+    <% end %>
   </p>
 </aside>
 <div>
@@ -12,8 +19,11 @@
     <%= image_tag('woods.jpg') %>
       <% @blogs.each do |blog| %>
       <ul class="article_main">
-        <div class = "content_userimg"><%= image_tag blog.user.image.url %></div>
-        <div>
+        <div class = "content_userimg">
+          <li><%= image_tag blog.user.image.url %></li>
+          <li>投稿者：<%= link_to blog.user.name, index_user_blog_path(blog.user_id) %></li>
+        </div>
+        <div class = "content_main">
           <li><%= blog.title %></li>
           <li><%= blog.user.name %></li>
           <li><%= image_tag blog.image.url %></li>
@@ -22,5 +32,5 @@
         </div>
       </ul>
       <% end %>
-    </table>
+  </table>
 </div>
