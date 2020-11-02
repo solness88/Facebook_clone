@@ -127,6 +127,10 @@ ul.top_menu{
   text-decoration: none;
 }
 
+.content_userimg li{
+  margin-top:10px;
+}
+
 .content_main{
   margin: 0 65px;
 }
@@ -167,6 +171,9 @@ ul.top_menu{
 }
 
 //サイドバー
+.side_menu{
+  text-align: center;
+}
 .side_menu li{
   background-color: #349beb;
   height: 6rem;
@@ -202,10 +209,35 @@ ul.top_menu{
 
 .panda_comment{
   text-align: center;
+  font-size:15px;
+  font-weight: bold;
+}
+
+.panda_comment a{
+  text-decoration: none;
+  color: white;
+  text-align: center;
 }
 
 .panda_comment img{
   width: 170px;
+}
+
+.side_category{
+  background-color: #3578D3;
+  font-weight: normal;
+  width: 200px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 13px;
+  height: 45px;
+  border-radius: 10px;
+  display: table;
+}
+
+.side_category a{
+  vertical-align: middle;
+  display: table-cell;
 }
 
 .banner{

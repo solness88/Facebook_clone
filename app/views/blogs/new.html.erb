@@ -2,14 +2,17 @@
   <p class="banner">
     <% if logged_in? %>
       <div class="panda_comment"><%= image_tag @blog_current.image.url %></div>
-      <div class="panda_comment">名前：<%= @blog_current.name %></div>
-      <div class="panda_comment">メール：<%= @blog_current.email %></div>
+      <div class="panda_comment">こんにちは、<%= @blog_current.name %>さん。</div>
+      <div class="panda_comment side_category"><%= link_to '投稿一覧', blogs_path %></div>
+      <div class="panda_comment side_category"><%= link_to '自分の投稿一覧', index_user_blog_path(@blog_current.id) %></div>
+      <div class="panda_comment side_category"><%= link_to '新規作成', new_blog_path %></div>
     <% else %>
       <div class="panda_comment"><%= link_to image_tag('facebook_logo.png'), blogs_path %></div>
       <div class="panda_comment">facebookクローン</div>
+      <div class="panda_comment side_category"><%= link_to '投稿一覧', blogs_path %></div>
+      <div class="panda_comment side_category"><%= link_to "サインアップ", new_user_path %></div>
+      <div class="panda_comment side_category"><%= link_to "ログイン", new_session_path %></div>
     <% end %>
-    <div class="panda_comment"><%= link_to '投稿一覧', blogs_path %></div>
-    <div class="panda_comment"><%= link_to '新規作成', new_blog_path %></div>
   </p>
 </aside>
 <div class = "content_new">
