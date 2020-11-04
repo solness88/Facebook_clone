@@ -10,21 +10,21 @@
     </div>
   <% end %>
   <div class="blog_title">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <div><%= form.label :title %></div>
+    <div><%= form.text_field :title %></div>
   </div>
   <div class="blog_title">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
+    <div><%= form.label :content %></div>
+    <div><%= form.text_field :content %></div>
   </div>
   <div class="blog_title">
-    <%= form.label :image %>
-    <%= image_tag(@blog.image.url) if @blog.image && @blog.image.url %>
-    <%= form.file_field :image %>
-    <%= form.hidden_field :image_cache %>
+    <div><%= form.label :image %></div>
+    <div><%= image_tag(@blog.image.url) if @blog.image && @blog.image.url %></div>
+    <div><%= form.file_field :image %></div>
+    <div><%= form.hidden_field :image_cache %></div>
   </div>
   <div class="actions">
-    <%= form.submit %>
+    <div><%= form.submit %></div>
   </div>
   <% end %>
-<%= link_to "ブログ一覧画面にもどる", blogs_path %>
+  <div><%= link_to "ブログ一覧画面にもどる", blogs_path %></div>
