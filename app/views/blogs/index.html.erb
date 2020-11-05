@@ -30,9 +30,9 @@
               <li>投稿者：<%= link_to blog.user.name, index_user_blog_path(blog.user_id) %></li>
             </div>
             <div class = "content_main">
-              <li><%= blog.title %></li>
+              <li class="article_title"><%= blog.title %></li>
               <li><%= image_tag blog.image.url %></li>
-              <li><%= blog.content %></li>
+              <li><%= blog.content.truncate(100) %></li>
               <li><%= link_to '詳細を確認する', blog_path(blog.id) %></li>
               <li><%= link_to blog.user.name + 'さんの投稿一覧', index_user_blog_path(blog.user_id) %></li>
             </div>

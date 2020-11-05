@@ -84,6 +84,11 @@ ul.top_menu{
   display: flex;
 }
 
+.article_title{
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
 .article_sentence{
   font-size: 25px;
   width: 300px;
@@ -178,10 +183,7 @@ ul.top_menu{
   width: 300px;
 }
 
-#blog_content{
-  width:500px;
-  height:150px;
-}
+
 
 //サイドバー
 .side_menu{
