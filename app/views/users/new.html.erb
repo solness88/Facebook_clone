@@ -1,3 +1,17 @@
+<aside class="side_menu">
+  <p class="banner">
+      <div class="panda_comment"><%= link_to image_tag('facebook_logo.png'), blogs_path %></div>
+      <div class="panda_comment">facebookクローン</div>
+      <div class="panda_comment side_category"><%= link_to '投稿一覧', blogs_path %></div>
+      <div class="panda_comment side_category"><%= link_to "サインアップ", new_user_path %></div>
+      <div class="panda_comment side_category"><%= link_to "ログイン", new_session_path %></div>
+    <p><%= notice %></p>
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %>
+  </p>
+</aside>
+
 <div class = "login_main">
 <h1>Sign up</h1>
 <% if @user.errors.any? %>
