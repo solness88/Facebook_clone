@@ -1,3 +1,8 @@
-<%= image_tag @user.image.url %>
-<h1><%= @user.name %>のページ</h1>
-<p>メールアドレス: <%= @user.email %></p>
+<div class = "profile_page">
+  <div class = "profile_content">
+    <div><%= image_tag @user.image.url %></div>
+    <h1>こんにちは、<%= @user.name %>さん。</h1>
+    <p>メールアドレス: <%= @user.email %></p>
+    <div class="panda_comment side_category"><%= link_to '投稿一覧へ', blogs_path %></div>
+  </div>
+</div>

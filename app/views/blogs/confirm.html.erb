@@ -5,18 +5,30 @@
     <div class="panda_comment">こんにちは、<%= @blog_current.name %>さん。</div>
   </p>
 </aside>
-<h3>以下の内容で、送信する。</h3>
-<%= form_with(model: @blog, local: true) do |form| %>
-  <%= form.hidden_field :title %>
-  <%= form.hidden_field :content %>
-  <p>タイトル:<%= @blog.title %></p>
-  <p>本文:<%= @blog.content %></p>
-  <%= image_tag(@blog.image.url) if @blog.image && @blog.image.url %>
-  <%= form.hidden_field :image_cache %>
-  <%= form.submit  "登録する" %>
-<% end %>
-<%= form_with(model:@blog, url:new_blog_path, local:true, method:"get") do |form| %>
-  <%= form.hidden_field :image_cache %>
-  <%= form.submit "戻る", name: "back" %>
-  <%= @blog.user.name %>
-<% end %>
+
+<div>
+  <table>
+    <h3>以下の内容で、送信する。</h3>
+    <ul class="article_main">
+      <div class = "content_userimg">
+        <li><%= image_tag @blog.user.image.url %></li>
+        <li>投稿者：<%= link_to @blog.user.name, index_user_blog_path(@blog.user_id) %></li>
+      </div>
+      <div class = "content_main">
+        <%= form_with(model: @blog, local: true) do |form| %>
+          <li><%= form.hidden_field :title %></li>
+          <li><%= form.hidden_field :content %></li>
+          <li class="article_title"><%= @blog.title %></li>
+          <li><%= image_tag(@blog.image.url) if @blog.image && @blog.image.url %></li>
+          <li><%= @blog.content %></li>
+          <li><%= form.hidden_field :image_cache %></li>
+          <li class = "confirm_submit"><%= form.submit  "登録する" %></li>
+        <% end %>
+        <%= form_with(model:@blog, url:new_blog_path, local:true, method:"get") do |form| %>
+          <li><%= form.hidden_field :image_cache %></li>
+          <li><%= form.submit "戻る", name: "back" %></li>
+        <% end %>
+      </div>
+    </ul>
+  </table>
+</div>

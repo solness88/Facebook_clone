@@ -2,7 +2,7 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
   before_action :blog_current, only: [:index, :new, :create, :show, :edit, :update, :destroy, :confirm, :index_user]
   def index
-    @blogs = Blog.all
+    @blogs = Blog.all.order(id: "DESC")
   end
   def new
     @blog = Blog.new
@@ -40,7 +40,7 @@ class BlogsController < ApplicationController
     render :new if @blog.invalid?
   end
   def index_user
-    @blogs = Blog.where(user_id:params[:id])
+    @blogs = Blog.where(user_id:params[:id]).order(id: "DESC")
     @index_user = Blog.find_by(user_id:params[:id])
     @count = Blog.where(user_id:params[:id]).count
   end

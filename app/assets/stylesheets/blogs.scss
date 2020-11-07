@@ -183,8 +183,6 @@ ul.top_menu{
   width: 300px;
 }
 
-
-
 //サイドバー
 .side_menu{
   text-align: center;
@@ -281,6 +279,27 @@ ul.top_menu{
 
 .login{
   margin-top: 20px;
+}
+
+//投稿確認画面
+h3{
+  font-size: 20px;
+  margin: 40px 0;
+}
+
+.confirm_submit{
+  margin: 10px 0;
+}
+
+//プロフィールページ
+.profile_page{
+  margin-right: auto;
+  margin-left: auto;
+  margin-top:130px
+}
+
+.profile_content{
+  text-align: center;
 }
 
 //フッター
