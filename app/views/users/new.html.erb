@@ -20,7 +20,7 @@
   </p>
 </aside>
 
-<div>
+<div class = "login_main">
 <h1>Sign up</h1>
 <% if @user.errors.any? %>
   <div id="error_explanation">
@@ -34,28 +34,28 @@
 <% end %>
   <ul>
     <%= form_with(model: @user, local: true) do |f| %>
-    <li>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+    <li class = "login">
+      <div><%= f.label :name %></div>
+      <div><%= f.text_field :name %></sdiv>
     </li>
-    <li>
-      <%= f.label :email %>
-      <%= f.email_field :email %>
+    <li class = "login">
+      <div><%= f.label :email %></div>
+      <div><%= f.email_field :email %></div>
     </li>
-    <li>
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+    <li class = "login">
+      <div><%= f.label :password %></div>
+      <div><%= f.password_field :password %></div>
     </li>
-    <li>
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation %>
+    <li class = "login">
+      <div><%= f.label :password_confirmation %></div>
+      <div><%= f.password_field :password_confirmation %></div>
     </li>
-    <li>
-      <%= f.label :image %>
-      <%= f.file_field :image %>
+    <li class = "login">
+      <div><%= f.label :image %></div>
+      <div><%= f.file_field :image %></div>
     </li>
-    <li>
-      <%= f.submit "Create my account" %>
+    <li class = "login">
+      <div><%= f.submit "Create my account" %></div>
     </li>
     <% end %>
   </ul>
