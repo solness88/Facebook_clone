@@ -32,7 +32,11 @@
             </div>
             <div class = "content_main">
               <li class="article_title"><%= blog.title %></li>
-              <li><%= image_tag blog.image.url %></li>
+              <% if blog.image.url.nil? %>
+                <li></li>
+              <% else %>
+                <li><%= image_tag blog.image.url %></li>
+              <% end %>
               <li><%= blog.content.truncate(100) %></li>
               <li><%= link_to '詳細を確認する', blog_path(blog.id) %></li>
               <li><%= link_to blog.user.name + 'さんの投稿一覧', index_user_blog_path(blog.user_id) %></li>
