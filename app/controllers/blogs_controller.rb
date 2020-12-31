@@ -21,6 +21,8 @@ class BlogsController < ApplicationController
   end
   def show
     @index_user = Blog.find_by(user_id:params[:id])
+    @comments = @blog.comments
+    @comment = @blog.comments.build
   end
   def edit
   end

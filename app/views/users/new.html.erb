@@ -47,8 +47,15 @@
       <div><%= f.file_field :image %></div>
     </li>
     <li class = "login">
-      <div><%= f.submit "Create my account" %></div>
+      <button type="button" class="btn btn-warning"><%= f.submit "Create my account" %></button>
     </li>
     <% end %>
+
+    <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-secondary">Left</button>
+      <button type="button" class="btn btn-secondary">Middle</button>
+      <button type="button" class="btn btn-secondary">Right</button>
+    </div>
+    
   </ul>
 </div>
