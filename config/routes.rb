@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  resources :relationships, only: [:create, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:new, :create, :show, :index]
   resources :blogs do
     resources :comments
     collection do

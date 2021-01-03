@@ -11,4 +11,15 @@ class User < ApplicationRecord
   validates :image, presence: true
   has_many :blogs
   mount_uploader :image, ImageUploader
+  def follow!(other_user)
+    active_relationships.create!(followed_id: other_user.id)
+  end
+  #フォローしているかどうかを確認する
+  def following?(other_user)
+    active_relationships.find_by(followed_id: other_user.id)
+  end
+
+  def unfollow!(other_user)
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
 end
